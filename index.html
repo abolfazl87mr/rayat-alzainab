@@ -1,129 +1,571 @@
-رایة الزینب :root { --black: #0a0a0e; --deep: #10101a; --panel: #14141f; --border: #1e1e2e; --gold: #b8922a; --gold-lt: #d4aa4a; --crimson: #7a1020; --crimson-lt:#a01530; --white: #e8e0d0; --muted: #8a8278; --font-ar: 'Amiri', serif; --font-fa: 'Vazirmatn', sans-serif; } *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; } html { scroll-behavior: smooth; } body { background: var(--black); color: var(--white); font-family: var(--font-fa); line-height: 1.7; overflow-x: hidden; } ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: var(--deep); } ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; } #loader { position: fixed; inset: 0; z-index: 9999; background: var(--black); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px; transition: opacity .6s ease; } #loader.hide { opacity: 0; pointer-events: none; } .loader-bismillah { font-family: var(--font-ar); font-size: 2rem; color: var(--gold); letter-spacing: .05em; animation: pulse 1.5s ease-in-out infinite; } .loader-bar { width: 160px; height: 2px; background: var(--border); border-radius: 2px; overflow: hidden; } .loader-fill { height: 100%; background: linear-gradient(90deg, var(--crimson), var(--gold)); animation: fill 1.8s ease forwards; } @keyframes fill { from { width: 0 } to { width: 100% } } @keyframes pulse { 0%,100%{opacity:.6} 50%{opacity:1} } nav { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(10,10,14,.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 64px; } .nav-logo { font-family: var(--font-ar); font-size: 1.5rem; color: var(--gold); text-decoration: none; display: flex; align-items: center; gap: 10px; } .nav-logo span { font-family: var(--font-fa); font-size: .75rem; color: var(--muted); display: block; } .nav-links { display: flex; gap: 28px; list-style: none; } .nav-links a { color: var(--muted); text-decoration: none; font-size: .875rem; transition: color .25s; position: relative; } .nav-links a::after { content: ''; position: absolute; bottom: -4px; right: 0; width: 0; height: 1px; background: var(--gold); transition: width .25s; } .nav-links a:hover { color: var(--gold-lt); } .nav-links a:hover::after { width: 100%; } .nav-toggle { display: none; background: none; border: none; cursor: pointer; } .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: .3s; } #hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; padding: 80px 24px 60px; position: relative; overflow: hidden; } .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(122,16,32,.18) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 50% 100%, rgba(184,146,42,.08) 0%, transparent 60%); } .hero-pattern { position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23b8922a' stroke-opacity='0.04' stroke-width='1'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z'/%3E%3Ccircle cx='30' cy='30' r='15'/%3E%3C/g%3E%3C/svg%3E"); background-size: 60px 60px; } .hero-emblem { font-size: 4.5rem; margin-bottom: 12px; filter: drop-shadow(0 0 24px rgba(184,146,42,.4)); animation: floatY 4s ease-in-out infinite; } @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} } .hero-title { font-family: var(--font-ar); font-size: clamp(2.8rem, 8vw, 5.5rem); color: var(--gold); letter-spacing: .04em; line-height: 1.2; text-shadow: 0 0 40px rgba(184,146,42,.3); position: relative; z-index: 1; } .hero-sub { font-size: clamp(.95rem, 2vw, 1.15rem); color: var(--muted); margin-top: 14px; font-weight: 300; letter-spacing: .08em; position: relative; z-index: 1; } .hero-divider { width: 120px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 28px auto; position: relative; z-index: 1; } .hero-slogan { font-family: var(--font-ar); font-size: clamp(1rem, 3vw, 1.4rem); color: var(--crimson-lt); font-weight: 700; letter-spacing: .06em; position: relative; z-index: 1; } .scroll-hint { margin-top: 60px; display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--muted); font-size: .75rem; letter-spacing: .1em; position: relative; z-index: 1; animation: fadeDown 2s ease infinite; } .scroll-hint::before { content: ''; display: block; width: 1px; height: 36px; background: linear-gradient(to bottom, transparent, var(--gold)); } @keyframes fadeDown { 0%,100%{opacity:.3;transform:translateY(0)} 50%{opacity:1;transform:translateY(6px)} } section { padding: 80px 24px; } .container { max-width: 1100px; margin: 0 auto; } .section-header { text-align: center; margin-bottom: 52px; } .section-eyebrow { display: inline-block; font-size: .7rem; font-weight: 600; letter-spacing: .2em; color: var(--gold); border: 1px solid var(--gold); padding: 4px 14px; border-radius: 2px; margin-bottom: 16px; text-transform: uppercase; } .section-title { font-family: var(--font-ar); font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--white); line-height: 1.3; } .section-line { width: 60px; height: 2px; background: var(--crimson); margin: 16px auto 0; } #news { background: var(--deep); } .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; } .news-card { background: var(--panel); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; transition: transform .3s, border-color .3s; cursor: pointer; } .news-card:hover { transform: translateY(-4px); border-color: var(--gold); } .news-thumb { width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg, var(--crimson) 0%, var(--deep) 100%); display: flex; align-items: center; justify-content: center; font-size: 2.8rem; } .news-body { padding: 20px; } .news-date { font-size: .72rem; color: var(--gold); margin-bottom: 8px; } .news-headline { font-size: 1rem; font-weight: 600; line-height: 1.5; margin-bottom: 10px; } .news-excerpt { font-size: .85rem; color: var(--muted); line-height: 1.7; } #gallery { background: var(--black); } .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 200px; gap: 8px; } .gallery-item { background: var(--panel); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; cursor: pointer; position: relative; display: flex; align-items: center; justify-content: center; transition: transform .3s; } .gallery-item:hover { transform: scale(1.02); z-index: 2; } .gallery-item:hover .g-overlay { opacity: 1; } .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; } .gallery-item:nth-child(4) { grid-column: span 2; } .g-icon { font-size: 3rem; } .g-overlay { position: absolute; inset: 0; background: rgba(122,16,32,.6); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity .3s; font-size: .85rem; letter-spacing: .1em; color: var(--white); } #audio { background: var(--deep); } .audio-list { display: flex; flex-direction: column; gap: 14px; } .audio-item { background: var(--panel); border: 1px solid var(--border); border-radius: 4px; padding: 20px 24px; display: flex; align-items: center; gap: 20px; transition: border-color .3s; } .audio-item:hover { border-color: var(--gold); } .audio-play { width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%; background: linear-gradient(135deg, var(--crimson), var(--gold)); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: transform .2s, box-shadow .2s; } .audio-play:hover { transform: scale(1.1); box-shadow: 0 0 16px rgba(184,146,42,.3); } .audio-info { flex: 1; } .audio-title { font-size: .95rem; font-weight: 600; margin-bottom: 4px; } .audio-meta { font-size: .78rem; color: var(--muted); } .audio-duration { font-size: .8rem; color: var(--gold); font-variant-numeric: tabular-nums; } #video { background: var(--black); } .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; } .video-card { background: var(--panel); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; cursor: pointer; transition: transform .3s, border-color .3s; } .video-card:hover { transform: translateY(-4px); border-color: var(--crimson-lt); } .video-thumb { width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg, #0a0a14, var(--crimson)); display: flex; align-items: center; justify-content: center; position: relative; } .video-thumb-icon { font-size: 3rem; } .play-btn { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,.4); opacity: 0; transition: opacity .3s; } .play-btn span { width: 52px; height: 52px; border-radius: 50%; background: rgba(184,146,42,.85); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; } .video-card:hover .play-btn { opacity: 1; } .video-body { padding: 16px; } .video-title { font-size: .92rem; font-weight: 600; margin-bottom: 6px; } .video-meta { font-size: .76rem; color: var(--muted); } footer { background: var(--deep); border-top: 1px solid var(--border); padding: 48px 24px 28px; text-align: center; } .footer-logo { font-family: var(--font-ar); font-size: 2rem; color: var(--gold); margin-bottom: 8px; } .footer-desc { font-size: .85rem; color: var(--muted); margin-bottom: 28px; } .footer-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 28px; } .footer-links a { color: var(--muted); text-decoration: none; font-size: .82rem; transition: color .25s; } .footer-links a:hover { color: var(--gold); } .footer-divider { width: 60px; height: 1px; background: var(--border); margin: 0 auto 20px; } .footer-copy { font-size: .75rem; color: var(--muted); } .footer-copy span { color: var(--crimson-lt); } @media (max-width: 768px) { nav { padding: 0 16px; } .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; right: 0; width: 100%; background: var(--deep); border-bottom: 1px solid var(--border); padding: 16px 24px; } .nav-links.open { display: flex; } .nav-toggle { display: block; } .gallery-grid { grid-template-columns: repeat(2, 1fr); } .gallery-item:nth-child(1) { grid-column: span 2; } .gallery-item:nth-child(4) { grid-column: span 1; } } .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; } .reveal.visible { opacity: 1; transform: none; } 
+content = """<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>رایة الزینب</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --black:    #0a0a0e;
+      --deep:     #10101a;
+      --panel:    #14141f;
+      --border:   #1e1e2e;
+      --gold:     #b8922a;
+      --gold-lt:  #d4aa4a;
+      --crimson:  #7a1020;
+      --crimson-lt:#a01530;
+      --white:    #e8e0d0;
+      --muted:    #8a8278;
+      --font-ar:  'Amiri', serif;
+      --font-fa:  'Vazirmatn', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-fa);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--deep); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+    #loader {
+      position: fixed; inset: 0; z-index: 9999;
+      background: var(--black);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 16px;
+      transition: opacity .6s ease;
+    }
+    #loader.hide { opacity: 0; pointer-events: none; }
+    .loader-bismillah {
+      font-family: var(--font-ar);
+      font-size: 2rem;
+      color: var(--gold);
+      letter-spacing: .05em;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    .loader-bar {
+      width: 160px; height: 2px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .loader-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--crimson), var(--gold));
+      animation: fill 1.8s ease forwards;
+    }
+    @keyframes fill { from { width: 0 } to { width: 100% } }
+    @keyframes pulse { 0%,100%{opacity:.6} 50%{opacity:1} }
+
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(10,10,14,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--font-ar);
+      font-size: 1.5rem;
+      color: var(--gold);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-logo span { font-family: var(--font-fa); font-size: .75rem; color: var(--muted); display: block; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .875rem;
+      transition: color .25s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -4px; right: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width .25s;
+    }
+    .nav-links a:hover { color: var(--gold-lt); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; }
+    .nav-toggle span {
+      display: block; width: 24px; height: 2px;
+      background: var(--white); margin: 5px 0;
+      transition: .3s;
+    }
+
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 80px 24px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(122,16,32,.18) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 50% 100%, rgba(184,146,42,.08) 0%, transparent 60%);
+    }
+    .hero-pattern {
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23b8922a' stroke-opacity='0.04' stroke-width='1'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z'/%3E%3Ccircle cx='30' cy='30' r='15'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 60px 60px;
+    }
+    .hero-emblem {
+      font-size: 4.5rem;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 0 24px rgba(184,146,42,.4));
+      animation: floatY 4s ease-in-out infinite;
+    }
+    @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    .hero-title {
+      font-family: var(--font-ar);
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      color: var(--gold);
+      letter-spacing: .04em;
+      line-height: 1.2;
+      text-shadow: 0 0 40px rgba(184,146,42,.3);
+      position: relative; z-index: 1;
+    }
+    .hero-sub {
+      font-size: clamp(.95rem, 2vw, 1.15rem);
+      color: var(--muted);
+      margin-top: 14px;
+      font-weight: 300;
+      letter-spacing: .08em;
+      position: relative; z-index: 1;
+    }
+    .hero-divider {
+      width: 120px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 28px auto;
+      position: relative; z-index: 1;
+    }
+    .hero-slogan {
+      font-family: var(--font-ar);
+      font-size: clamp(1rem, 3vw, 1.4rem);
+      color: var(--crimson-lt);
+      font-weight: 700;
+      letter-spacing: .06em;
+      position: relative; z-index: 1;
+    }
+    .scroll-hint {
+      margin-top: 60px;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: var(--muted); font-size: .75rem; letter-spacing: .1em;
+      position: relative; z-index: 1;
+      animation: fadeDown 2s ease infinite;
+    }
+    .scroll-hint::before {
+      content: '';
+      display: block; width: 1px; height: 36px;
+      background: linear-gradient(to bottom, transparent, var(--gold));
+    }
+    @keyframes fadeDown { 0%,100%{opacity:.3;transform:translateY(0)} 50%{opacity:1;transform:translateY(6px)} }
+
+    section { padding: 80px 24px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 52px; }
+    .section-eyebrow {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .2em;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 4px 14px;
+      border-radius: 2px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    .section-title {
+      font-family: var(--font-ar);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--white);
+      line-height: 1.3;
+    }
+    .section-line {
+      width: 60px; height: 2px;
+      background: var(--crimson);
+      margin: 16px auto 0;
+    }
+
+    #news { background: var(--deep); }
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .news-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: transform .3s, border-color .3s;
+      cursor: pointer;
+    }
+    .news-card:hover { transform: translateY(-4px); border-color: var(--gold); }
+    .news-thumb {
+      width: 100%; aspect-ratio: 16/9;
+      background: linear-gradient(135deg, var(--crimson) 0%, var(--deep) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.8rem;
+    }
+    .news-body { padding: 20px; }
+    .news-date { font-size: .72rem; color: var(--gold); margin-bottom: 8px; }
+    .news-headline { font-size: 1rem; font-weight: 600; line-height: 1.5; margin-bottom: 10px; }
+    .news-excerpt { font-size: .85rem; color: var(--muted); line-height: 1.7; }
+
+    #gallery { background: var(--black); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 200px;
+      gap: 8px;
+    }
+    .gallery-item {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .3s;
+    }
+    .gallery-item:hover { transform: scale(1.02); z-index: 2; }
+    .gallery-item:hover .g-overlay { opacity: 1; }
+    .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+    .gallery-item:nth-child(4) { grid-column: span 2; }
+    .g-icon { font-size: 3rem; }
+    .g-overlay {
+      position: absolute; inset: 0;
+      background: rgba(122,16,32,.6);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity .3s;
+      font-size: .85rem; letter-spacing: .1em; color: var(--white);
+    }
+
+    #audio { background: var(--deep); }
+    .audio-list { display: flex; flex-direction: column; gap: 14px; }
+    .audio-item {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 20px 24px;
+      display: flex; align-items: center; gap: 20px;
+      transition: border-color .3s;
+    }
+    .audio-item:hover { border-color: var(--gold); }
+    .audio-play {
+      width: 44px; height: 44px; flex-shrink: 0;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--crimson), var(--gold));
+      border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .audio-play:hover { transform: scale(1.1); box-shadow: 0 0 16px rgba(184,146,42,.3); }
+    .audio-info { flex: 1; }
+    .audio-title { font-size: .95rem; font-weight: 600; margin-bottom: 4px; }
+    .audio-meta { font-size: .78rem; color: var(--muted); }
+    .audio-duration { font-size: .8rem; color: var(--gold); font-variant-numeric: tabular-nums; }
+
+    #video { background: var(--black); }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .video-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform .3s, border-color .3s;
+    }
+    .video-card:hover { transform: translateY(-4px); border-color: var(--crimson-lt); }
+    .video-thumb {
+      width: 100%; aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #0a0a14, var(--crimson));
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .video-thumb-icon { font-size: 3rem; }
+    .play-btn {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,.4);
+      opacity: 0; transition: opacity .3s;
+    }
+    .play-btn span {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: rgba(184,146,42,.85);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .video-card:hover .play-btn { opacity: 1; }
+    .video-body { padding: 16px; }
+    .video-title { font-size: .92rem; font-weight: 600; margin-bottom: 6px; }
+    .video-meta { font-size: .76rem; color: var(--muted); }
+
+    footer {
+      background: var(--deep);
+      border-top: 1px solid var(--border);
+      padding: 48px 24px 28px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: var(--font-ar);
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .footer-desc { font-size: .85rem; color: var(--muted); margin-bottom: 28px; }
+    .footer-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 28px; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: .82rem; transition: color .25s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-divider { width: 60px; height: 1px; background: var(--border); margin: 0 auto 20px; }
+    .footer-copy { font-size: .75rem; color: var(--muted); }
+    .footer-copy span { color: var(--crimson-lt); }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 16px; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; right: 0; width: 100%; background: var(--deep); border-bottom: 1px solid var(--border); padding: 16px 24px; }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: block; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item:nth-child(1) { grid-column: span 2; }
+      .gallery-item:nth-child(4) { grid-column: span 1; }
+    }
+
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+
+<nav>
+  <a href="#hero" class="nav-logo">
+    رایة الزینب
+    <span>هیئت محبان اهل‌البیت علیهم السلام</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#news">اخبار</a></li>
+    <li><a href="#gallery">تصاویر</a></li>
+    <li><a href="#audio">صوت</a></li>
+    <li><a href="#video">ویدیو</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="منو">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-emblem">☽</div>
+  <h1 class="hero-title">رایة الزینب</h1>
+  <p class="hero-sub">هیئت محبان اهل‌البیت علیهم السلام</p>
+  <div class="hero-divider"></div>
+  <p class="hero-slogan">يَا لَيْتَنِي كُنْتُ مَعَكُمْ</p>
+  <div class="scroll-hint">پایین بروید</div>
+</section>
+
+<section id="news">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">آخرین رویدادها</span>
+      <h2 class="section-title">اخبار هیئت</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="news-grid">
+      <div class="news-card reveal">
+        <div class="news-thumb">🕌</div>
+        <div class="news-body">
+          <div class="news-date">۱۴۰۴/۳/۱۸</div>
+          <h3 class="news-headline">برگزاری مراسم شب‌های قدر</h3>
+          <p class="news-excerpt">مراسم احیای شب‌های قدر با حضور گسترده مؤمنین برگزار می‌شود. برنامه کامل و زمان‌بندی مراسم اعلام شد.</p>
+        </div>
+      </div>
+      <div class="news-card reveal">
+        <div class="news-thumb">📿</div>
+        <div class="news-body">
+          <div class="news-date">۱۴۰۴/۳/۱۰</div>
+          <h3 class="news-headline">هیئت در پیاده‌روی اربعین</h3>
+          <p class="news-excerpt">ثبت‌نام کاروان هیئت رایة الزینب برای پیاده‌روی اربعین حسینی آغاز شد.</p>
+        </div>
+      </div>
+      <div class="news-card reveal">
+        <div class="news-thumb">🕯️</div>
+        <div class="news-body">
+          <div class="news-date">۱۴۰۴/۲/۲۸</div>
+          <h3 class="news-headline">مراسم شهادت حضرت فاطمه(س)</h3>
+          <p class="news-excerpt">مراسم سوگواری ایام فاطمیه با نوحه‌خوانی استادان برجسته برگزار شد.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">آرشیو تصویری</span>
+      <h2 class="section-title">گالری تصاویر</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item"><span class="g-icon">🕌</span><div class="g-overlay">مراسم محرم</div></div>
+      <div class="gallery-item"><span class="g-icon">☽</span><div class="g-overlay">شب‌های قدر</div></div>
+      <div class="gallery-item"><span class="g-icon">📿</span><div class="g-overlay">عزاداری</div></div>
+      <div class="gallery-item"><span class="g-icon">🕯️</span><div class="g-overlay">فاطمیه</div></div>
+      <div class="gallery-item"><span class="g-icon">🌹</span><div class="g-overlay">اربعین</div></div>
+      <div class="gallery-item"><span class="g-icon">⭐</span><div class="g-overlay">جشن مبعث</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="audio">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">آرشیو صوتی</span>
+      <h2 class="section-title">مداحی جدید</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="audio-list">
+      <div class="audio-item reveal">
+        <audio id="audio-yasin">
+          <source src="https://dls.musics-fa.com/song/alibz/2026/06/Hossein%20Khalaji%20-%20Ale%20Yasin%20Musics-Fa.mp3" type="audio/mpeg">
+        </audio>
+        <button class="audio-play" onclick="playAudio('audio-yasin', this)">▶</button>
+        <div class="audio-info">
+          <div class="audio-title">آل یاسین — حسین خلجی</div>
+          <div class="audio-meta">مراسم هیئت محبان اهل‌البیت</div>
+        </div>
+        <div class="audio-duration">--:--</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="video">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">آرشیو تصویری</span>
+      <h2 class="section-title">ویدیوهای مراسم</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="video-grid">
+      <div class="video-card reveal">
+        <div class="video-thumb">
+          <span class="video-thumb-icon">🎬</span>
+          <div class="play-btn"><span>▶</span></div>
+        </div>
+        <div class="video-body">
+          <div class="video-title">مراسم عزاداری محرم ۱۴۰۳</div>
+          <div class="video-meta">۴۵ دقیقه · ۱۴۰۳/۵/۱</div>
+        </div>
+      </div>
+      <div class="video-card reveal">
+        <div class="video-thumb">
+          <span class="video-thumb-icon">🎥</span>
+          <div class="play-btn"><span>▶</span></div>
+        </div>
+        <div class="video-body">
+          <div class="video-title">پیاده‌روی اربعین — روز اول</div>
+          <div class="video-meta">۳۲ دقیقه · ۱۴۰۳/۶/۲۰</div>
+        </div>
+      </div>
+      <div class="video-card reveal">
+        <div class="video-thumb">
+          <span class="video-thumb-icon">📹</span>
+          <div class="play-btn"><span>▶</span></div>
+        </div>
+        <div class="video-body">
+          <div class="video-title">شب‌های قدر — احیاء</div>
+          <div class="video-meta">۵۸ دقیقه · ۱۴۰۴/۱/۱</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">رایة الزینب</div>
+  <p class="footer-desc">هیئت محبان اهل‌البیت علیهم السلام</p>
+  <div class="footer-links">
+    <a href="#news">اخبار</a>
+    <a href="#gallery">تصاویر</a>
+    <a href="#audio">صوت</a>
+    <a href="#video">ویدیو</a>
+  </div>
+  <div class="footer-divider"></div>
+  <p class="footer-copy">© ۱۴۰۴ رایة الزینب — ساخته شده با <span>❤</span> برای محبان اهل‌البیت</p>
+</footer>
+
+<script>
+  function playAudio(id, btn) {
+    const audio = document.getElementById(id);
+    document.querySelectorAll('audio').forEach(a => { if(a.id !== id) a.pause(); });
+    if (audio.paused) {
+      audio.play();
+      btn.textContent = '⏸';
+    } else {
+      audio.pause();
+      btn.textContent = '▶';
+    }
+  }
+
+  window.addEventListener('load', () => {
+    setTimeout(() => document.getElementById('loader').classList.add('hide'), 1800);
+  });
+
+  document.getElementById('navToggle').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.getElementById('navLinks').classList.remove('open');
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>"""
+
+with open("index.html", "w", encoding="utf-8") as f:
+    f.write(content)
 
-بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
 
-رایة الزینب هیئت محبان اهل‌البیت علیهم السلام 
-
-اخبار
-
-تصاویر
-
-صوت
-
-ویدیو
-
-☽
-
-رایة الزینب
-
-هیئت محبان اهل‌البیت علیهم السلام
-
-يَا لَيْتَنِي كُنْتُ مَعَكُمْ
-
-پایین بروید
-
-آخرین رویدادها 
-
-اخبار هیئت
-
-🕌
-
-۱۴۰۴/۳/۱۸
-
-برگزاری مراسم شب‌های قدر
-
-مراسم احیای شب‌های قدر با حضور گسترده مؤمنین برگزار می‌شود. برنامه کامل و زمان‌بندی مراسم اعلام شد.
-
-📿
-
-۱۴۰۴/۳/۱۰
-
-هیئت در پیاده‌روی اربعین
-
-ثبت‌نام کاروان هیئت رایة الزینب برای پیاده‌روی اربعین حسینی آغاز شد.
-
-🕯️
-
-۱۴۰۴/۲/۲۸
-
-مراسم شهادت حضرت فاطمه(س)
-
-مراسم سوگواری ایام فاطمیه با نوحه‌خوانی استادان برجسته برگزار شد.
-
-آرشیو تصویری 
-
-گالری تصاویر
-
-🕌
-
-مراسم محرم
-
-☽
-
-شب‌های قدر
-
-📿
-
-عزاداری
-
-🕯️
-
-فاطمیه
-
-🌹
-
-اربعین
-
-⭐
-
-جشن مبعث
-
-آرشیو صوتی 
-
-مداحی جدید
-
-▶ 
-
-آل یاسین — حسین خلجی
-
-مراسم هیئت محبان اهل‌البیت
-
---:--
-
-آرشیو تصویری 
-
-ویدیوهای مراسم
-
-🎬 
-
-▶
-
-مراسم عزاداری محرم ۱۴۰۳
-
-۴۵ دقیقه · ۱۴۰۳/۵/۱
-
-🎥 
-
-▶
-
-پیاده‌روی اربعین — روز اول
-
-۳۲ دقیقه · ۱۴۰۳/۶/۲۰
-
-📹 
-
-▶
-
-شب‌های قدر — احیاء
-
-۵۸ دقیقه · ۱۴۰۴/۱/۱
-
-رایة الزینب
-
-هیئت محبان اهل‌البیت علیهم السلام
-
-اخبار تصاویر صوت ویدیو 
-
-© ۱۴۰۴ رایة الزینب — ساخته شده با ❤ برای محبان اهل‌البیت
-
-function playAudio(id, btn) { const audio = document.getElementById(id); document.querySelectorAll('audio').forEach(a => { if(a.id !== id) a.pause(); }); if (audio.paused) { audio.play(); btn.textContent = '⏸'; } else { audio.pause(); btn.textContent = '▶'; } } window.addEventListener('load', () => { setTimeout(() => document.getElementById('loader').classList.add('hide'), 1800); }); document.getElementById('navToggle').addEventListener('click', () => { document.getElementById('navLinks').classList.toggle('open'); }); document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', e => { e.preventDefault(); document.getElementById('navLinks').classList.remove('open'); const target = document.querySelector(a.getAttribute('href')); if (target) target.scrollIntoView({ behavior: 'smooth' }); }); }); const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.12 }); document.querySelectorAll('.reveal').forEach(el => observer.observe(el)); 
